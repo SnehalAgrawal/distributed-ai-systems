@@ -1,0 +1,1013 @@
+{
+ "started_utc": "2026-11-24T18:20:37+00:00",
+ "freeze_inputs": {
+  "manifest": "freeze-inputs.json",
+  "frozen_at_utc": "2026-11-24T18:03:09+00:00",
+  "matches": true,
+  "changed": []
+ },
+ "freeze_code": {
+  "manifest": "freeze.json",
+  "frozen_at_utc": "2026-11-24T18:20:33+00:00",
+  "matches": true,
+  "changed": []
+ },
+ "environment": {
+  "python": "3.12.13",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "machine": "arm64",
+  "processor": "Apple M4 Pro",
+  "load_average": [
+   2.69,
+   2.15,
+   1.98
+  ],
+  "repository_head": "73fa43b",
+  "demo_files_uncommitted": true,
+  "load_average_end": [
+   1.76,
+   1.85,
+   1.88
+  ]
+ },
+ "calibration": {
+  "sleep_50ms_overshoot_s": {
+   "median": 0.00114,
+   "max": 0.00416
+  },
+  "zero_length_call_s": {
+   "median": 2.2e-05,
+   "max": 0.000115
+  }
+ },
+ "experiments": {
+  "E1": {
+   "fixed": [
+    {
+     "N": 1,
+     "throughput_per_minute": 6.0,
+     "successes_in_window": 8,
+     "attempts": 10,
+     "rejections": 0,
+     "reasons": {},
+     "max_in_flight": 1,
+     "avg_in_flight": 1.0,
+     "mean_call_seconds": 1.00097
+    },
+    {
+     "N": 2,
+     "throughput_per_minute": 12.0,
+     "successes_in_window": 16,
+     "attempts": 20,
+     "rejections": 0,
+     "reasons": {},
+     "max_in_flight": 2,
+     "avg_in_flight": 2.0,
+     "mean_call_seconds": 1.00161
+    },
+    {
+     "N": 4,
+     "throughput_per_minute": 24.0,
+     "successes_in_window": 32,
+     "attempts": 40,
+     "rejections": 0,
+     "reasons": {},
+     "max_in_flight": 4,
+     "avg_in_flight": 3.999,
+     "mean_call_seconds": 1.00115
+    },
+    {
+     "N": 8,
+     "throughput_per_minute": 48.0,
+     "successes_in_window": 64,
+     "attempts": 80,
+     "rejections": 0,
+     "reasons": {},
+     "max_in_flight": 8,
+     "avg_in_flight": 7.998,
+     "mean_call_seconds": 1.00113
+    }
+   ],
+   "variable": {
+    "N": 8,
+    "throughput_per_minute": 48.4,
+    "successes_in_window": 242,
+    "attempts": 263,
+    "rejections": 0,
+    "reasons": {},
+    "max_in_flight": 8,
+    "avg_in_flight": 7.999,
+    "mean_call_seconds": 0.99516
+   }
+  },
+  "E2": {
+   "retry_after": [
+    {
+     "N": 8,
+     "throughput_per_minute": 48.0,
+     "successes_in_window": 72,
+     "attempts": 96,
+     "rejections": 0,
+     "reasons": {},
+     "max_in_flight": 8,
+     "avg_in_flight": 7.997
+    },
+    {
+     "N": 16,
+     "throughput_per_minute": 96.0,
+     "successes_in_window": 144,
+     "attempts": 192,
+     "rejections": 0,
+     "reasons": {},
+     "max_in_flight": 16,
+     "avg_in_flight": 15.988
+    },
+    {
+     "N": 33,
+     "throughput_per_minute": 100.0,
+     "successes_in_window": 150,
+     "attempts": 21904,
+     "rejections": 21688,
+     "reasons": {
+      "input_tokens": 1950,
+      "requests": 19738
+     },
+     "max_in_flight": 33,
+     "avg_in_flight": 16.701
+    },
+    {
+     "N": 67,
+     "throughput_per_minute": 100.0,
+     "successes_in_window": 150,
+     "attempts": 90929,
+     "rejections": 90713,
+     "reasons": {
+      "input_tokens": 1950,
+      "requests": 88763
+     },
+     "max_in_flight": 34,
+     "avg_in_flight": 16.761
+    }
+   ],
+   "immediate": {
+    "if_available": {
+     "N": 67,
+     "throughput_per_minute": 100.0,
+     "successes_in_window": 150,
+     "attempts": 53560,
+     "rejections": 53344,
+     "reasons": {
+      "input_tokens": 1948,
+      "requests": 51396
+     },
+     "max_in_flight": 34,
+     "avg_in_flight": 16.733
+    },
+    "always": {
+     "N": 67,
+     "throughput_per_minute": 0.0,
+     "successes_in_window": 0,
+     "attempts": 69731,
+     "rejections": 69714,
+     "reasons": {
+      "input_tokens": 155,
+      "requests": 69559
+     },
+     "max_in_flight": 18,
+     "avg_in_flight": 0.059
+    }
+   }
+  },
+  "E2b": {
+   "tag_article": {
+    "INPUT": {
+     "N": 34,
+     "throughput_per_minute": 95.0,
+     "successes_in_window": 190,
+     "attempts": 284,
+     "rejections": 0,
+     "reasons": {},
+     "max_in_flight": 16,
+     "avg_in_flight": 15.852
+    },
+    "BOTH": {
+     "N": 34,
+     "throughput_per_minute": 95.0,
+     "successes_in_window": 190,
+     "attempts": 284,
+     "rejections": 0,
+     "reasons": {},
+     "max_in_flight": 16,
+     "avg_in_flight": 15.852
+    }
+   },
+   "long_answer": {
+    "INPUT": {
+     "N": 36,
+     "throughput_per_minute": 36.0,
+     "successes_in_window": 72,
+     "attempts": 386,
+     "rejections": 232,
+     "reasons": {
+      "output_tokens": 232
+     },
+     "max_in_flight": 36,
+     "avg_in_flight": 17.09
+    },
+    "BOTH": {
+     "N": 36,
+     "throughput_per_minute": 51.0,
+     "successes_in_window": 102,
+     "attempts": 151,
+     "rejections": 0,
+     "reasons": {},
+     "max_in_flight": 17,
+     "avg_in_flight": 16.898
+    }
+   },
+   "classify_title": {
+    "INPUT": {
+     "N": 67,
+     "throughput_per_minute": 1000.0,
+     "successes_in_window": 2000,
+     "attempts": 5700,
+     "rejections": 2534,
+     "reasons": {
+      "requests": 2534
+     },
+     "max_in_flight": 64,
+     "avg_in_flight": 33.369
+    },
+    "BOTH": {
+     "N": 67,
+     "throughput_per_minute": 950.0,
+     "successes_in_window": 1900,
+     "attempts": 2849,
+     "rejections": 0,
+     "reasons": {},
+     "max_in_flight": 33,
+     "avg_in_flight": 31.764
+    }
+   }
+  },
+  "E3": {
+   "C_fast": {
+    "call_seconds": 0.2,
+    "throughput_per_minute": 100.5,
+    "successes_in_window": 134,
+    "attempts": 25102,
+    "rejections": 24886,
+    "reasons": {
+     "input_tokens": 1947,
+     "requests": 22939
+    },
+    "max_in_flight": 20,
+    "avg_in_flight": 3.354
+   },
+   "RATE_fast": {
+    "call_seconds": 0.2,
+    "throughput_per_minute": 94.5,
+    "successes_in_window": 126,
+    "attempts": 189,
+    "rejections": 0,
+    "reasons": {},
+    "max_in_flight": 4,
+    "avg_in_flight": 3.182
+   },
+   "BOTH_fast": {
+    "call_seconds": 0.2,
+    "throughput_per_minute": 94.5,
+    "successes_in_window": 126,
+    "attempts": 189,
+    "rejections": 0,
+    "reasons": {},
+    "max_in_flight": 4,
+    "avg_in_flight": 3.182
+   },
+   "C_slow": {
+    "call_seconds": 3.0,
+    "throughput_per_minute": 30.0,
+    "successes_in_window": 40,
+    "attempts": 91,
+    "rejections": 11,
+    "reasons": {
+     "input_tokens": 11
+    },
+    "max_in_flight": 20,
+    "avg_in_flight": 19.997
+   },
+   "RATE_slow": {
+    "call_seconds": 3.0,
+    "throughput_per_minute": 95.25,
+    "successes_in_window": 127,
+    "attempts": 189,
+    "rejections": 0,
+    "reasons": {},
+    "max_in_flight": 48,
+    "avg_in_flight": 47.515
+   },
+   "BOTH_slow": {
+    "call_seconds": 3.0,
+    "throughput_per_minute": 33.75,
+    "successes_in_window": 45,
+    "attempts": 80,
+    "rejections": 0,
+    "reasons": {},
+    "max_in_flight": 20,
+    "avg_in_flight": 19.999
+   }
+  },
+  "E4": {
+   "full": {
+    "throughput_per_minute": 95.0,
+    "successes_in_window": 95,
+    "attempts": 134,
+    "rejections": 7,
+    "reasons": {
+     "input_tokens": 7
+    },
+    "max_in_flight": 16,
+    "avg_in_flight": 15.851,
+    "rejection_times": [
+     0.0002,
+     0.0002,
+     0.0002,
+     0.0002,
+     0.0002,
+     0.0002,
+     0.0061
+    ],
+    "last_rejection": 0.0061
+   },
+   "empty": {
+    "throughput_per_minute": 95.0,
+    "successes_in_window": 95,
+    "attempts": 126,
+    "rejections": 0,
+    "reasons": {},
+    "max_in_flight": 16,
+    "avg_in_flight": 15.851,
+    "rejection_times": [],
+    "last_rejection": null
+   }
+  },
+  "E5": {
+   "chats_scheduled": 119,
+   "a": {
+    "chats": 119,
+    "chats_with_429": 0,
+    "share_with_429": 0.0,
+    "failures": 0,
+    "p50": 0.4023,
+    "p95": 0.4027,
+    "p95_is_failure": false,
+    "import": null
+   },
+   "b": {
+    "chats": 119,
+    "chats_with_429": 118,
+    "share_with_429": 0.9916,
+    "failures": 0,
+    "p50": 0.6726,
+    "p95": 1.3682,
+    "p95_is_failure": false,
+    "import": {
+     "throughput_per_minute": 71.667,
+     "successes_in_window": 215,
+     "attempts": 62489,
+     "rejections": 62179,
+     "reasons": {
+      "input_tokens": 3375,
+      "requests": 58804
+     },
+     "max_in_flight": 33,
+     "avg_in_flight": 11.864
+    }
+   },
+   "c": {
+    "chats": 119,
+    "chats_with_429": 0,
+    "share_with_429": 0.0,
+    "failures": 0,
+    "p50": 0.4023,
+    "p95": 0.4026,
+    "p95_is_failure": false,
+    "import": {
+     "throughput_per_minute": 60.0,
+     "successes_in_window": 180,
+     "attempts": 229,
+     "rejections": 0,
+     "reasons": {},
+     "max_in_flight": 11,
+     "avg_in_flight": 10.003
+    }
+   },
+   "d": {
+    "chats": 119,
+    "chats_with_429": 0,
+    "share_with_429": 0.0,
+    "failures": 0,
+    "p50": 0.4013,
+    "p95": 0.4024,
+    "p95_is_failure": false,
+    "import": {
+     "throughput_per_minute": 60.0,
+     "successes_in_window": 180,
+     "attempts": 43245,
+     "rejections": 43006,
+     "reasons": {
+      "input_tokens": 2160,
+      "requests": 40846
+     },
+     "max_in_flight": 20,
+     "avg_in_flight": 10.028
+    }
+   },
+   "e": {
+    "chats": 119,
+    "chats_with_429": 0,
+    "share_with_429": 0.0,
+    "failures": 0,
+    "p50": 0.4008,
+    "p95": 0.4012,
+    "p95_is_failure": false,
+    "import": {
+     "throughput_per_minute": 100.0,
+     "successes_in_window": 300,
+     "attempts": 45491,
+     "rejections": 45092,
+     "reasons": {
+      "input_tokens": 3600,
+      "requests": 41492
+     },
+     "max_in_flight": 33,
+     "avg_in_flight": 16.691
+    }
+   },
+   "f": {
+    "chats": 119,
+    "chats_with_429": 107,
+    "share_with_429": 0.8992,
+    "failures": 0,
+    "p50": 0.4179,
+    "p95": 0.4846,
+    "p95_is_failure": false,
+    "import": {
+     "throughput_per_minute": 71.0,
+     "successes_in_window": 213,
+     "attempts": 112570,
+     "rejections": 112260,
+     "reasons": {
+      "input_tokens": 3460,
+      "requests": 108800
+     },
+     "max_in_flight": 34,
+     "avg_in_flight": 11.803
+    }
+   }
+  },
+  "E6": {
+   "estimate": {
+    "t_admit": 6.0013,
+    "mu_per_second": 10.0,
+    "waiting_ahead": 90,
+    "first_result": 10.0,
+    "last_result": 24.9
+   },
+   "actual": {
+    "first_result": 10.1003,
+    "last_result": 25.0004,
+    "job2_done": 150
+   },
+   "samples": [
+    {
+     "t": 0.0,
+     "length": 150,
+     "age": 0.0096
+    },
+    {
+     "t": 0.5,
+     "length": 146,
+     "age": 0.5012
+    },
+    {
+     "t": 1.0,
+     "length": 140,
+     "age": 1.0014
+    },
+    {
+     "t": 1.5,
+     "length": 135,
+     "age": 1.5013
+    },
+    {
+     "t": 2.0,
+     "length": 131,
+     "age": 2.0007
+    },
+    {
+     "t": 2.5,
+     "length": 125,
+     "age": 2.5014
+    },
+    {
+     "t": 3.0,
+     "length": 120,
+     "age": 3.0012
+    },
+    {
+     "t": 3.5,
+     "length": 115,
+     "age": 3.5012
+    },
+    {
+     "t": 4.0,
+     "length": 110,
+     "age": 4.0014
+    },
+    {
+     "t": 4.5,
+     "length": 105,
+     "age": 4.5011
+    },
+    {
+     "t": 5.0,
+     "length": 101,
+     "age": 5.0013
+    },
+    {
+     "t": 5.5,
+     "length": 95,
+     "age": 5.5014
+    },
+    {
+     "t": 6.0,
+     "length": 240,
+     "age": 6.0017
+    },
+    {
+     "t": 6.5,
+     "length": 240,
+     "age": 6.501
+    },
+    {
+     "t": 7.0,
+     "length": 241,
+     "age": 7.0013
+    },
+    {
+     "t": 7.5,
+     "length": 240,
+     "age": 7.5011
+    },
+    {
+     "t": 8.0,
+     "length": 241,
+     "age": 8.0011
+    },
+    {
+     "t": 8.5,
+     "length": 240,
+     "age": 8.5014
+    },
+    {
+     "t": 9.0,
+     "length": 241,
+     "age": 9.0011
+    },
+    {
+     "t": 9.5,
+     "length": 240,
+     "age": 9.5012
+    },
+    {
+     "t": 10.0,
+     "length": 241,
+     "age": 10.0012
+    },
+    {
+     "t": 10.5,
+     "length": 241,
+     "age": 10.5011
+    },
+    {
+     "t": 11.0,
+     "length": 241,
+     "age": 11.0012
+    },
+    {
+     "t": 11.5,
+     "length": 241,
+     "age": 11.5012
+    },
+    {
+     "t": 12.0,
+     "length": 240,
+     "age": 12.0012
+    },
+    {
+     "t": 12.5,
+     "length": 241,
+     "age": 12.5012
+    },
+    {
+     "t": 13.0,
+     "length": 241,
+     "age": 13.0013
+    },
+    {
+     "t": 13.5,
+     "length": 241,
+     "age": 13.5014
+    },
+    {
+     "t": 14.0,
+     "length": 241,
+     "age": 14.0015
+    },
+    {
+     "t": 14.5,
+     "length": 241,
+     "age": 14.5014
+    },
+    {
+     "t": 15.0,
+     "length": 241,
+     "age": 15.0012
+    },
+    {
+     "t": 15.5,
+     "length": 241,
+     "age": 9.4998
+    },
+    {
+     "t": 16.0,
+     "length": 241,
+     "age": 9.9994
+    },
+    {
+     "t": 16.5,
+     "length": 241,
+     "age": 10.4999
+    },
+    {
+     "t": 17.0,
+     "length": 240,
+     "age": 10.9999
+    },
+    {
+     "t": 17.5,
+     "length": 241,
+     "age": 11.4999
+    },
+    {
+     "t": 18.0,
+     "length": 241,
+     "age": 11.9998
+    },
+    {
+     "t": 18.5,
+     "length": 241,
+     "age": 12.5001
+    },
+    {
+     "t": 19.0,
+     "length": 241,
+     "age": 13.0002
+    },
+    {
+     "t": 19.5,
+     "length": 241,
+     "age": 13.4998
+    },
+    {
+     "t": 20.0,
+     "length": 241,
+     "age": 14.0
+    },
+    {
+     "t": 20.5,
+     "length": 241,
+     "age": 14.4999
+    },
+    {
+     "t": 21.0,
+     "length": 241,
+     "age": 14.9999
+    },
+    {
+     "t": 21.5,
+     "length": 240,
+     "age": 15.4999
+    },
+    {
+     "t": 22.0,
+     "length": 240,
+     "age": 15.9999
+    },
+    {
+     "t": 22.5,
+     "length": 241,
+     "age": 16.5
+    },
+    {
+     "t": 23.0,
+     "length": 241,
+     "age": 16.9999
+    },
+    {
+     "t": 23.5,
+     "length": 241,
+     "age": 17.4999
+    },
+    {
+     "t": 24.0,
+     "length": 241,
+     "age": 17.9997
+    },
+    {
+     "t": 24.5,
+     "length": 241,
+     "age": 18.4989
+    },
+    {
+     "t": 25.0,
+     "length": 240,
+     "age": 18.9997
+    },
+    {
+     "t": 25.5,
+     "length": 240,
+     "age": 19.4997
+    },
+    {
+     "t": 26.0,
+     "length": 240,
+     "age": 19.9998
+    },
+    {
+     "t": 26.5,
+     "length": 241,
+     "age": 20.4996
+    },
+    {
+     "t": 27.0,
+     "length": 241,
+     "age": 20.9998
+    },
+    {
+     "t": 27.5,
+     "length": 240,
+     "age": 21.4996
+    },
+    {
+     "t": 28.0,
+     "length": 241,
+     "age": 21.9999
+    },
+    {
+     "t": 28.5,
+     "length": 241,
+     "age": 22.4997
+    },
+    {
+     "t": 29.0,
+     "length": 241,
+     "age": 22.9997
+    },
+    {
+     "t": 29.5,
+     "length": 241,
+     "age": 23.4996
+    },
+    {
+     "t": 30.0,
+     "length": 241,
+     "age": 23.9996
+    },
+    {
+     "t": 30.5,
+     "length": 241,
+     "age": 24.0003
+    },
+    {
+     "t": 31.0,
+     "length": 241,
+     "age": 24.0001
+    },
+    {
+     "t": 31.5,
+     "length": 242,
+     "age": 24.1002
+    },
+    {
+     "t": 32.0,
+     "length": 240,
+     "age": 24.0003
+    },
+    {
+     "t": 32.5,
+     "length": 241,
+     "age": 23.9999
+    },
+    {
+     "t": 33.0,
+     "length": 241,
+     "age": 24.0003
+    },
+    {
+     "t": 33.5,
+     "length": 241,
+     "age": 24.0001
+    },
+    {
+     "t": 34.0,
+     "length": 240,
+     "age": 24.0
+    },
+    {
+     "t": 34.5,
+     "length": 241,
+     "age": 24.0002
+    },
+    {
+     "t": 35.0,
+     "length": 241,
+     "age": 24.0001
+    },
+    {
+     "t": 35.5,
+     "length": 241,
+     "age": 24.0001
+    },
+    {
+     "t": 36.0,
+     "length": 240,
+     "age": 24.0002
+    }
+   ],
+   "rejections": 0
+  },
+  "E7": {
+   "deliveries": 210,
+   "documents": 200,
+   "adjacent": [
+    33,
+    37,
+    41,
+    58,
+    99
+   ],
+   "late": [
+    10,
+    15,
+    48,
+    62,
+    114
+   ],
+   "X": {
+    "counter": 210,
+    "counter_percent": 105.0,
+    "items_done": 200,
+    "items_percent": 100.0,
+    "model_calls": 210
+   },
+   "Y": {
+    "counter": 205,
+    "counter_percent": 102.5,
+    "items_done": 200,
+    "items_percent": 100.0,
+    "model_calls": 205
+   }
+  },
+  "E8": {
+   "1": {
+    "level": 1,
+    "at_cancel": {
+     "in_flight": 19,
+     "waiting": 21,
+     "handed_not_started": 0,
+     "fed": 140
+    },
+    "started_after": 81,
+    "completed_after": 100,
+    "input_tokens_after": 324000,
+    "output_tokens_after": 60000,
+    "tokens_after": 384000,
+    "cancellations_seen": 0,
+    "partial_output_tokens": [],
+    "documents_fed": 200,
+    "results_total": 200
+   },
+   "2": {
+    "level": 2,
+    "at_cancel": {
+     "in_flight": 19,
+     "waiting": 21,
+     "handed_not_started": 0,
+     "fed": 140
+    },
+    "started_after": 21,
+    "completed_after": 40,
+    "input_tokens_after": 84000,
+    "output_tokens_after": 24000,
+    "tokens_after": 108000,
+    "cancellations_seen": 0,
+    "partial_output_tokens": [],
+    "documents_fed": 140,
+    "results_total": 140
+   },
+   "3": {
+    "level": 3,
+    "at_cancel": {
+     "in_flight": 19,
+     "waiting": 21,
+     "handed_not_started": 0,
+     "fed": 140
+    },
+    "started_after": 0,
+    "completed_after": 19,
+    "input_tokens_after": 0,
+    "output_tokens_after": 11400,
+    "tokens_after": 11400,
+    "cancellations_seen": 0,
+    "partial_output_tokens": [],
+    "documents_fed": 140,
+    "results_total": 119
+   },
+   "4": {
+    "level": 4,
+    "at_cancel": {
+     "in_flight": 19,
+     "waiting": 21,
+     "handed_not_started": 0,
+     "fed": 140
+    },
+    "started_after": 0,
+    "completed_after": 0,
+    "input_tokens_after": 0,
+    "output_tokens_after": 6744,
+    "tokens_after": 6744,
+    "cancellations_seen": 19,
+    "partial_output_tokens": [
+     562,
+     524,
+     525,
+     546,
+     509,
+     577,
+     599,
+     454,
+     319,
+     269,
+     361,
+     283,
+     399,
+     211,
+     265,
+     101,
+     126,
+     75,
+     39
+    ],
+    "documents_fed": 140,
+    "results_total": 100
+   }
+  },
+  "N1": [
+   {
+    "N": 33,
+    "throughput_per_minute": 198.0,
+    "successes_in_window": 297,
+    "attempts": 396,
+    "rejections": 0,
+    "reasons": {},
+    "max_in_flight": 33,
+    "avg_in_flight": 32.975
+   },
+   {
+    "N": 67,
+    "throughput_per_minute": 402.0,
+    "successes_in_window": 603,
+    "attempts": 804,
+    "rejections": 0,
+    "reasons": {},
+    "max_in_flight": 67,
+    "avg_in_flight": 66.936
+   }
+  ]
+ },
+ "seconds": {
+  "E1": 72.0,
+  "E2": 72.2,
+  "E2b": 108.0,
+  "E3": 72.0,
+  "E4": 16.0,
+  "E5": 136.4,
+  "E6": 36.0,
+  "E7": 22.0,
+  "E8": 30.4,
+  "N1": 24.0
+ },
+ "finished_utc": "2026-11-24T18:30:27+00:00"
+}

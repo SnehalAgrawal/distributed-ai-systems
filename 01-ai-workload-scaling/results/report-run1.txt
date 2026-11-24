@@ -1,0 +1,106 @@
+Run: 20261124T182037Z
+Started 2026-11-24T18:20:37+00:00, finished 2026-11-24T18:30:27+00:00
+Environment: {"demo_files_uncommitted": true, "load_average": [2.69, 2.15, 1.98], "load_average_end": [1.76, 1.85, 1.88], "machine": "arm64", "platform": "macOS-26.6.2-arm64-arm-64bit", "processor": "Apple M4 Pro", "python": "3.12.13", "repository_head": "73fa43b"}
+Seconds per experiment: {"E1": 72.0, "E2": 72.2, "E2b": 108.0, "E3": 72.0, "E4": 16.0, "E5": 136.4, "E6": 36.0, "E7": 22.0, "E8": 30.4, "N1": 24.0}
+Calibration: {"sleep_50ms_overshoot_s": {"max": 0.00416, "median": 0.00114}, "zero_length_call_s": {"max": 0.000115, "median": 2.2e-05}} -> valid
+Freeze (inputs): matches=True frozen_at=2026-11-24T18:03:09+00:00 changed=[]
+Freeze (code): matches=True frozen_at=2026-11-24T18:20:33+00:00 changed=[]
+
+== Stable ==
+PASS P1.1 E1 N=1 fixed W: throughput within 5% of N/W (6/min)
+PASS P1.2 E1 N=1 fixed W: average in flight within 5% of throughput x mean call time
+PASS P1.1 E1 N=2 fixed W: throughput within 5% of N/W (12/min)
+PASS P1.2 E1 N=2 fixed W: average in flight within 5% of throughput x mean call time
+PASS P1.1 E1 N=4 fixed W: throughput within 5% of N/W (24/min)
+PASS P1.2 E1 N=4 fixed W: average in flight within 5% of throughput x mean call time
+PASS P1.1 E1 N=8 fixed W: throughput within 5% of N/W (48/min)
+PASS P1.2 E1 N=8 fixed W: average in flight within 5% of throughput x mean call time
+PASS P1.1 E1 N=8 random W in [0.5, 1.5]: throughput within 8% of N/mean W (48/min)
+PASS P1.2 E1 N=8 random W: average in flight within 8% of throughput x mean call time
+PASS P2.1 E2 C(8) below L*: throughput within 5% of 48/min, no 429s
+PASS P2.1 E2 C(16) below L*: throughput within 5% of 96/min, no 429s
+PASS P2.2 E2 C(33) above L*: throughput within 5% of the ceiling (100/min)
+PASS P2.2 E2 C(67) above L*: throughput within 5% of the ceiling (100/min)
+PASS P2.2 E2 429s at N=33 and N=67, more at 67 than at 33
+FAIL P2.2 E2 at least 95% of 429s at N=33 and 67 have reason input_tokens
+FAIL P2.3 E2 C(67) immediate retries, rule if_available: useful throughput more than 5% below the retry-after result
+PASS P2.3 E2 C(67) immediate retries, rule always: useful throughput more than 5% below the retry-after result
+PASS P2b.1 E2b tag_article BOTH: throughput within 5% of 95/min, no 429s | binding limit by configuration: input_tokens
+PASS P2b.2 E2b tag_article INPUT: like BOTH (95/min, no 429s)
+PASS P2b.1 E2b long_answer BOTH: throughput within 5% of 50.6667/min, no 429s | binding limit by configuration: output_tokens
+FAIL P2b.2 E2b long_answer INPUT: 429s, >= 95% with reason output_tokens, throughput within 5% of 53.3333/min
+PASS P2b.1 E2b classify_title BOTH: throughput within 5% of 950/min, no 429s | binding limit by configuration: requests
+PASS P2b.2 E2b classify_title INPUT: 429s, >= 95% with reason requests, throughput within 5% of 1000/min
+PASS P3 E3 C(20) fast: 429s, throughput within 5% of 100/min
+FAIL P3 E3 C(20) slow: no 429s, throughput within 5% of 40/min, at most 20 in flight
+PASS P3 E3 RATE fast: no 429s, throughput within 5% of 95/min
+PASS P3 E3 RATE slow: no 429s, throughput within 5% of 95/min, max in flight > 20, average in flight within 10% of 47.5
+PASS P3 E3 BOTH fast: no 429s, throughput within 5% of 95/min, at most 20 in flight
+FAIL P3 E3 BOTH slow: no 429s, throughput within 5% of 40/min, at most 20 in flight
+PASS P4 E4 buckets start full: at least one 429, all within the first 1.0 s
+PASS P4 E4 buckets start empty: no 429s
+PASS P4 E4 both: throughput over [2, 8] within 5% of 95/min
+PASS P5 E5a chat alone: no chat 429s | chats scheduled 119
+PASS P5 E5b import uncapped: >= 25% of chats get a 429, chat p95 >= 1.5 x a's
+PASS P5 E5c import at 60%: <= 5% of chats get a 429, chat p95 <= 1.2 x a's, import within 5% of 60/min
+PASS P5 E5d workspace cap at 60%: <= 5% of chats get a 429, import gets 429s, import within 5% of 60/min
+PASS P5 E5e import on a separate limit: no chat 429s, import within 5% of 100/min
+FAIL P5 E5f import uncapped, immediate retries: share of chats with a 429 >= b's
+PASS P6.1 E6 job 2's first result within 10% of the estimate at admission
+PASS P6.2 E6 queue length within 15% of its t=8 value until t=34, while the oldest age at least doubles
+PASS P6.3 E6 job 2's last result within 10% of the estimate at admission
+PASS P7 E7 X: counter 210, items done 200, model calls 210 | counter 210 (105.0%), items 200 (100.0%), calls 210
+PASS P7 E7 Y: items done 200, model calls 205, counter 205 | counter 205, items 200, calls 205
+PASS P8 E8 level 1 (flag only): all 100 remaining documents complete after the cancel
+PASS P8 E8 level 2 (stop feeding): completes exactly those in flight and waiting at the cancel, fewer than level 1
+PASS P8 E8 level 3 (skip queued): completes exactly those in flight, starts none
+PASS P8 E8 level 4 (cancel in flight): completes none, starts none, one cancellation per call in flight, partial output below 600 each
+PASS P8 E8 input plus output tokens after the cancel decrease strictly from level 1 to 4
+PASS N1 no-limit stand-in C(33): throughput within 5% of 198/min (no plateau)
+PASS N1 no-limit stand-in C(67): throughput within 5% of 402/min (no plateau)
+PASS N1 P2.2's plateau check, applied to the no-limit numbers, fails (as it must)
+
+Stable digest: d29df5bd120ed2a400707c0c3eb9897a284c831f13a9c72f894784f18a410cce
+Predictions: 46 PASS, 6 FAIL
+
+== Measurements (vary between runs) ==
+E1 N=1: throughput/min 6.00, avg in flight 1.000, mean call s 1.0010, throughput x call 1.001
+E1 N=2: throughput/min 12.00, avg in flight 2.000, mean call s 1.0016, throughput x call 2.003
+E1 N=4: throughput/min 24.00, avg in flight 3.999, mean call s 1.0011, throughput x call 4.005
+E1 N=8: throughput/min 48.00, avg in flight 7.998, mean call s 1.0011, throughput x call 8.009
+E1 N=8 random W: throughput/min 48.40, avg in flight 7.999, mean call s 0.9952, throughput x call 8.028
+E2 C(8) retry-after: throughput/min 48.00, 429s 0 (input_tokens 0, requests 0), attempts 96, max in flight 8
+E2 C(16) retry-after: throughput/min 96.00, 429s 0 (input_tokens 0, requests 0), attempts 192, max in flight 16
+E2 C(33) retry-after: throughput/min 100.00, 429s 21688 (input_tokens 1950, requests 19738), attempts 21904, max in flight 33
+E2 C(67) retry-after: throughput/min 100.00, 429s 90713 (input_tokens 1950, requests 88763), attempts 90929, max in flight 34
+E2 C(67) immediate, rule if_available: throughput/min 100.00, 429s 53344, attempts 53560, reasons {"input_tokens": 1948, "requests": 51396}
+E2 C(67) immediate, rule always: throughput/min 0.00, 429s 69714, attempts 69731, reasons {"input_tokens": 155, "requests": 69559}
+E2b tag_article INPUT: throughput/min 95.00, 429s 0, reasons {}
+E2b tag_article BOTH: throughput/min 95.00, 429s 0, reasons {}
+E2b long_answer INPUT: throughput/min 36.00, 429s 232, reasons {"output_tokens": 232}
+E2b long_answer BOTH: throughput/min 51.00, 429s 0, reasons {}
+E2b classify_title INPUT: throughput/min 1000.00, 429s 2534, reasons {"requests": 2534}
+E2b classify_title BOTH: throughput/min 950.00, 429s 0, reasons {}
+E3 C_fast: throughput/min 100.50, 429s 24886, max in flight 20, avg in flight 3.35, avg in flight / call time per min 100.62
+E3 C_slow: throughput/min 30.00, 429s 11, max in flight 20, avg in flight 20.00, avg in flight / call time per min 39.99
+E3 RATE_fast: throughput/min 94.50, 429s 0, max in flight 4, avg in flight 3.18, avg in flight / call time per min 95.46
+E3 RATE_slow: throughput/min 95.25, 429s 0, max in flight 48, avg in flight 47.52, avg in flight / call time per min 95.03
+E3 BOTH_fast: throughput/min 94.50, 429s 0, max in flight 4, avg in flight 3.18, avg in flight / call time per min 95.46
+E3 BOTH_slow: throughput/min 33.75, 429s 0, max in flight 20, avg in flight 20.00, avg in flight / call time per min 40.00
+E4 start full: 429s 7, last 429 at s 0.006, throughput/min 95.00
+E4 start empty: 429s 0, last 429 at s none, throughput/min 95.00
+E5a: chats with 429 0/119 (0.0%), failures 0, p50 s 0.402, p95 s 0.403
+E5b: chats with 429 118/119 (99.2%), failures 0, p50 s 0.673, p95 s 1.368, import throughput/min 71.67, import 429s 62179
+E5c: chats with 429 0/119 (0.0%), failures 0, p50 s 0.402, p95 s 0.403, import throughput/min 60.00, import 429s 0
+E5d: chats with 429 0/119 (0.0%), failures 0, p50 s 0.401, p95 s 0.402, import throughput/min 60.00, import 429s 43006
+E5e: chats with 429 0/119 (0.0%), failures 0, p50 s 0.401, p95 s 0.401, import throughput/min 100.00, import 429s 45092
+E5f: chats with 429 107/119 (89.9%), failures 0, p50 s 0.418, p95 s 0.485, import throughput/min 71.00, import 429s 112260
+E6 estimate: waiting ahead 90, rate/s 10.000, first s 10.00, last s 24.90
+E6 actual: first s 10.10 (error % 1.0), last s 25.00 (error % 0.4), job 2 done 150, 429s 0
+E6 t=8..34: length min 240 max 242, at t=8 241; oldest age s at t=8 8.00, at t=34 24.00
+E8 level 1: at cancel in flight 19, waiting 21, handed 0; after: started 81, completed 100, input tokens 324000, output tokens 60000, cancellations 0, partial output 0
+E8 level 2: at cancel in flight 19, waiting 21, handed 0; after: started 21, completed 40, input tokens 84000, output tokens 24000, cancellations 0, partial output 0
+E8 level 3: at cancel in flight 19, waiting 21, handed 0; after: started 0, completed 19, input tokens 0, output tokens 11400, cancellations 0, partial output 0
+E8 level 4: at cancel in flight 19, waiting 21, handed 0; after: started 0, completed 0, input tokens 0, output tokens 6744, cancellations 19, partial output 6744
+N1 C(33) no limit: throughput/min 198.00, 429s 0
+N1 C(67) no limit: throughput/min 402.00, 429s 0

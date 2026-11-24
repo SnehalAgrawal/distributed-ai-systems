@@ -1,0 +1,18 @@
+1. E2b long_answer, input bucket only, 40 s run
+   first 36 starts span 0.02 to 0.57 demo s
+   window (6, 18): 72 completions = 36.0 per article minute
+   window (6, 30): 180 completions = 45.0 per article minute
+   window (6, 40): 252 completions = 44.5 per article minute
+   window (10, 40): 216 completions = 43.2 per article minute
+2. E5 chat refusals by reason
+   b (C(33), retry-after): chat refusals {'requests': 5009, 'input_tokens': 183}; chats with a 429 109/119; p95 1.362 demo s; failures 0
+   f (C(67), immediate): chat refusals {'requests': 177, 'input_tokens': 110}; chats with a 429 105/119; p95 0.486 demo s; failures 0
+3. E6 wait before start of single uploads, by arrival time
+   arrived t=6-6.5: 5 started, wait 24.10-24.10 demo s
+   arrived t=8-8.5: 5 started, wait 24.10-24.10 demo s
+   arrived t=10-10.5: 5 started, wait 24.10-24.10 demo s
+   arrived t=11-11.5: 5 started, wait 24.10-24.10 demo s
+   t=8: length 240, oldest age 8.00 demo s
+   t=16: length 241, oldest age 10.00 demo s
+   t=24: length 240, oldest age 18.00 demo s
+   t=34: length 240, oldest age 24.00 demo s

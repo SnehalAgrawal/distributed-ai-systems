@@ -1,0 +1,8 @@
+{
+ "frozen_at_utc": "2026-11-24T18:03:09+00:00",
+ "note": "Inputs frozen before any code for this demo existed. run.py compares these hashes on every run.",
+ "files": {
+  "PROTOCOL.md": "cbb79462a2b02a4a4ffd88c843a3be91eadee83c6d93a26b1e34c7ef80b2856c",
+  "data/config.json": "d9a26895306c32473e9b0fa233e7b139ff45a70cf72c20a9234affde0301ee65"
+ }
+}

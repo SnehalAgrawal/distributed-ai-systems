@@ -1,0 +1,15 @@
+{
+ "frozen_at_utc": "2026-11-24T18:20:33+00:00",
+ "note": "Code frozen before the first reported run. run.py compares these hashes on every run.",
+ "files": {
+  "python/common.py": "257707863d7f31b10aebde8e934d088bd5efaf120f8e3ab37cc0d0d28e36c9f2",
+  "python/standin.py": "40a610e7a10f552792c23752c27f0c1dd5f437aaf19504fb2b5f5d74665139d8",
+  "python/pool.py": "ebe79a6bf88c0621984f90912aa29450251d56934fda7b5171a90e330fd1c98d",
+  "python/experiments.py": "1c5f1bd37935bacfa90c0c82cbd4600889c95af77a94dc97d136ec935e830d18",
+  "python/run.py": "f49d1974ca4438ea5749569b69beb2e1e1241a21977b019272dd1d3f86e2f7f0",
+  "python/report.py": "c4e600559f5960262f028534ac3d485c16ceb2f67dfe0d348b2fd4fbb70da7fa",
+  "python/compare.py": "5db7581b23abd39fab14354a7d24789c9fbd9ff996e08bc5ba2508eed7445960",
+  "python/freeze.py": "01d73f437d515007f15adc3b5beec312ba7c783a090d14ac71dfa5beb094ca7f",
+  "python/test_pool.py": "67e469fddd7a303328ef8cac3251f90bf77916dfe62b2623c3e1bcf3cc64f637"
+ }
+}

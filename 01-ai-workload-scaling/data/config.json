@@ -1,0 +1,36 @@
+{
+  "note": "Every value here is configured, not measured. Times are in demo seconds; one demo second stands for ten article seconds, so an article minute lasts 6 demo seconds. Limits are per article minute and are the article's illustrative numbers, not any provider's tier.",
+  "scale": {"article_seconds_per_demo_second": 10, "article_minute_demo_seconds": 6.0},
+  "limits": {"requests": 1000, "input_tokens": 400000, "output_tokens": 80000},
+  "standin": {"window_article_seconds": 10, "short_window_article_seconds": 1, "rejected_rule": "if_available"},
+  "tasks": {
+    "tag_article": {"input_tokens": 4000, "output_tokens": 600, "call_seconds": 1.0},
+    "long_answer": {"input_tokens": 1000, "output_tokens": 1500, "call_seconds": 2.0},
+    "classify_title": {"input_tokens": 200, "output_tokens": 50, "call_seconds": 0.2},
+    "chat_turn": {"input_tokens": 3000, "output_tokens": 300, "call_seconds": 0.4}
+  },
+  "pool": {"bucket_burst_seconds": 0.5, "immediate_retry_pause_seconds": 0.01},
+  "tolerances": {"throughput": 0.05, "throughput_random": 0.08, "estimate": 0.10, "length_band": 0.15,
+                 "max_sleep_overshoot_seconds": 0.005},
+  "seeds": {"e1_variable": 4201, "e5_chat": 4205, "e7_duplicates": 4207, "e8_call_times": 4208},
+  "experiments": {
+    "E1": {"N": [1, 2, 4, 8], "duration": 10.0, "window": [1.5, 9.5],
+           "variable": {"N": 8, "call_seconds_range": [0.5, 1.5], "duration": 32.0, "window": [2.0, 32.0]}},
+    "E2": {"N": [8, 16, 33, 67], "duration": 12.0, "window": [3.0, 12.0], "immediate_N": 67},
+    "E2b": {"N": {"tag_article": 34, "long_answer": 36, "classify_title": 67}, "share": 0.95,
+            "duration": 18.0, "window": [6.0, 18.0]},
+    "E3": {"N": 20, "share": 0.95, "fast_call_seconds": 0.2, "slow_call_seconds": 3.0,
+           "duration": 12.0, "window": [4.0, 12.0]},
+    "E4": {"N": 20, "share": 0.95, "duration": 8.0, "window": [2.0, 8.0], "start_window": 1.0},
+    "E5": {"chat_per_article_minute": 40, "chat_from": 3.0, "chat_to": 21.0, "chat_deadline": 2.0,
+           "duration": 23.0, "window": [3.0, 21.0], "uncapped_N": 33, "capped_N": 20, "share": 0.6,
+           "immediate_N": 67, "workspace_share": 0.6},
+    "E6": {"N": 20, "share": 0.6, "job1": 150, "job2": 150, "job2_at": 6.0, "trickle_from": 6.0,
+           "trickle_every": 0.1, "duration": 36.0, "sample_every": 0.5, "rate_window": [3.0, 6.0],
+           "steady_from": 8.0, "steady_to": 34.0},
+    "E7": {"N": 20, "documents": 200, "duplicates_adjacent": 5, "duplicates_late": 5},
+    "E8": {"N": 20, "documents": 200, "feed_chunk": 20, "feed_below": 20, "cancel_after_results": 100,
+           "call_seconds_range": [0.5, 1.5]},
+    "N1": {"N": [33, 67], "duration": 12.0, "window": [3.0, 12.0]}
+  }
+}
